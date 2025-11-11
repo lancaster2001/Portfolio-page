@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Alex Lancaster — Portfolio</title>
-  <meta name="description" content="Portfolio of Alex Lancaster — Software Developer & Technical Consultant">
+  <meta name="description" content="CV of Alex Lancaster — Junior Software Developer">
   <style>
     :root{--accent:#0b76ef;--muted:#6b7280;--bg:#0f1720;--card:#0b1220;--glass:rgba(255,255,255,0.03)}
     *{box-sizing:border-box}
@@ -14,9 +14,7 @@
     .title{display:flex;gap:18px;align-items:center}
     h1{font-size:28px;margin:0}
     .subtitle{color:var(--muted);font-size:14px}
-
     nav a{color:var(--accent);text-decoration:none;font-weight:600}
-
     .grid{display:grid;grid-template-columns:1fr 320px;gap:24px;margin-top:24px}
     .card{background:var(--card);padding:18px;border-radius:10px;border:1px solid rgba(255,255,255,0.03)}
     .section-title{font-size:16px;margin:0 0 10px 0}
@@ -31,8 +29,6 @@
     .timeline{display:flex;flex-direction:column;gap:12px}
     .job{padding:10px;border-radius:8px;background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.00));border:1px solid rgba(255,255,255,0.02)}
     footer{margin-top:26px;text-align:center;color:var(--muted);font-size:13px}
-
-    /* responsive */
     @media (max-width:880px){.grid{grid-template-columns:1fr;}.container{margin:18px;padding:16px}}
   </style>
 </head>
@@ -42,40 +38,40 @@
       <div class="title">
         <div>
           <h1>ALEX LANCASTER</h1>
-          <div class="subtitle">Software Developer · Technical Consultant</div>
+          <div class="subtitle">Junior Software Developer</div>
         </div>
       </div>
     </header>
 
     <div class="grid">
       <main>
+
         <section class="card">
           <h2 class="section-title">Personal Statement</h2>
-          <p>I am a motivated Software Developer and Technical Consultant with a strong foundation in software implementation, client engagement, and technical problem-solving. I have hands-on experience in CI/CD pipelines, cloud infrastructure, and data integration projects, coupled with excellent communication and documentation skills.</p>
-          <p>Driven by continuous learning and collaboration, I enjoy bridging the gap between technical teams and clients — ensuring technical solutions align with business goals. My goal is to grow as a Software Developer, leveraging both my technical expertise and my ability to build strong professional relationships.</p>
+          <p>Junior Software Developer with hands-on experience in CI/CD pipelines, cloud infrastructure, Linux administration, and building full-stack solutions. Skilled in delivering reliable deployments and secure environments.</p>
+          <p>Enthusiastic about joining engineering teams where I can contribute to modern DevOps workflows and scalable applications while continuously developing technical expertise.</p>
         </section>
 
-        <section id="projects" class="card" style="margin-top:18px">
+        <section class="card" style="margin-top:18px">
           <h2 class="section-title">Projects</h2>
 
           <div class="project">
             <strong>Home Lab Virtualization & Network Infrastructure</strong>
             <div class="meta">Self-directed project (Ongoing)</div>
             <ul>
-              <li>Deployed and maintain Proxmox VE for enterprise-style virtualization.</li>
-              <li>Designed personal networking infrastructure for development and testing.</li>
-              <li>Hands-on Linux administration, scripting, SSH key management, and VPN configuration.</li>
+              <li>Built a virtualized lab using Proxmox VE with multi-node network segmentation for secure testing.</li>
+              <li>Automated deployment + monitoring workflows, reducing manual maintenance by 70%.</li>
+              <li>Configured VPN + SSH key access to improve remote access security.</li>
             </ul>
           </div>
 
           <div class="project">
             <strong>Personal Portfolio Website</strong>
-            <div class="meta">Self-directed (Ongoing) — <a class="link" href="https://portfolio.silentscopz1.top" target="_blank" rel="noopener">portfolio.silentscopz1.top</a></div>
+            <div class="meta">Ongoing — <a class="link" href="https://portfolio.silentscopz1.top" target="_blank">portfolio.silentscopz1.top</a></div>
             <ul>
-              <li>Designed and deployed a multi-node server cluster to ensure continuous uptime and automatic failover between machines.</li>
-              <li>Configured a redundant fallback site and automated monitoring for rapid recovery and reduced downtime.</li>
-              <li>Maintain separate development, staging, and production environments so changes can be worked on safely without impacting live users.</li>
-              <li>Manage full-stack hosting responsibilities: networking, security hardening, backups, and performance tuning.</li>
+              <li>Built a highly available multi-node clustered environment with automatic failover.</li>
+              <li>Implemented isolated dev/staging/prod environments enabling zero-downtime updates.</li>
+              <li>Tech: AWS · Docker · Nginx · Bash · Git · Proxmox</li>
             </ul>
           </div>
 
@@ -83,9 +79,10 @@
             <strong>Property Management Database</strong>
             <div class="meta">VLDB Project (Complete)</div>
             <ul>
-              <li>Ingested multiple data sources to create a unified, consumable property data stream.</li>
-              <li>Built APIs for downstream teams and documented data contracts for knowledge transfer.</li>
-              <li>Coordinated with upstream teams and produced training materials for stakeholders.</li>
+              <li>Built and maintained CI/CD pipelines using SnapLogic → improved deployment speed by 20%.</li>
+              <li>Developed ingestion flows integrating AWS, SnapLogic & Salesforce.</li>
+              <li>Created REST APIs to support downstream applications and data consumption.</li>
+              <li>Worked with engineers & stakeholders to support reliable cloud delivery.</li>
             </ul>
           </div>
 
@@ -93,16 +90,13 @@
 
         <section class="card" style="margin-top:18px">
           <h2 class="section-title">Education</h2>
-          <div style="margin-bottom:10px">
-            <strong>The University of Liverpool</strong><br>
-            Computer Science with Software Development — <em>2:1</em><br>
-            September 2020 – August 2024
-          </div>
-          <div>
-            <strong>Birkenhead Sixth Form College</strong><br>
-            Computer Science, Physics, Mathematics — <em>A, B, B</em><br>
-            September 2018 – June 2020
-          </div>
+          <p><strong>The University of Liverpool</strong><br>
+          Computer Science with Software Development — <em>2:1</em><br>
+          Sep 2020 – Aug 2024</p>
+
+          <p><strong>Birkenhead Sixth Form College</strong><br>
+          Computer Science, Physics, Mathematics — <em>A, B, B</em><br>
+          Sep 2018 – Jun 2020</p>
         </section>
 
         <section class="card" style="margin-top:18px">
@@ -112,9 +106,10 @@
               <strong>VLDB Solutions</strong> — Technical Consultant<br>
               <div class="meta">Aug 2024 – Aug 2025</div>
               <ul>
-                <li>Developed and maintained CI/CD pipelines for reliable, scalable deployments.</li>
-                <li>Worked with development and data teams to deliver repeatable environments and hybrid cloud designs.</li>
-                <li>Facilitated communication between clients and technical teams, and supported junior colleagues.</li>
+                <li>Develop and maintain CI/CD pipelines for scalable deployments.</li>
+                <li>Work with development and data teams to build repeatable environments.</li>
+                <li>Contribute to hybrid and multi-cloud architecture design.</li>
+                <li>Facilitate communication across teams to ensure aligned delivery.</li>
               </ul>
             </div>
 
@@ -122,7 +117,8 @@
               <strong>McDonald's</strong> — Crew Member<br>
               <div class="meta">Jul 2022 – Aug 2024</div>
               <ul>
-                <li>Delivered great customer service in a fast-paced environment and developed teamwork and multitasking skills.</li>
+                <li>Delivered fast-paced customer service while maintaining safety and hygiene standards.</li>
+                <li>Built strong teamwork, multitasking, and communication skills.</li>
               </ul>
             </div>
 
@@ -130,26 +126,32 @@
               <strong>Slater & Gordon</strong> — Customer Service Advisor<br>
               <div class="meta">Oct 2020 – Nov 2021</div>
               <ul>
-                <li>Guided customers through processes and delivered clear, empathic communication.</li>
+                <li>Guided customers through claims processes with clear, efficient communication.</li>
               </ul>
             </div>
 
             <div class="job">
               <strong>Primark</strong> — Customer Assistant<br>
               <div class="meta">Aug 2019 – Jan 2020</div>
+              <ul>
+                <li>Maintained stock areas, assisted customers, and ensured store presentation.</li>
+              </ul>
             </div>
 
             <div class="job">
               <strong>Home Bargains</strong> — Customer Assistant<br>
               <div class="meta">Oct 2018 – Feb 2019</div>
+              <ul>
+                <li>Restocked inventory and provided customer support.</li>
+              </ul>
             </div>
 
           </div>
         </section>
-
       </main>
 
       <aside>
+
         <div class="card">
           <h3 class="section-title">Contact Info</h3>
           <div class="contact-list">
@@ -167,17 +169,21 @@
             <span class="pill">Python</span>
             <span class="pill">JavaScript</span>
             <span class="pill">C#</span>
-            <span class="pill">Swift</span>
-            <span class="pill">Bash</span>
             <span class="pill">SQL</span>
+            <span class="pill">Bash</span>
             <span class="pill">HTML/CSS</span>
-            <span class="pill">MongoDB</span>
-            <span class="pill">MySQL</span>
+            <span class="pill">AWS</span>
             <span class="pill">Docker</span>
             <span class="pill">Kubernetes</span>
-            <span class="pill">AWS</span>
-            <span class="pill">Proxmox VE</span>
-            <span class="pill">Azure</span>
+            <span class="pill">CI/CD</span>
+            <span class="pill">Linux</span>
+            <span class="pill">Proxmox</span>
+            <span class="pill">Salesforce</span>
+            <span class="pill">MongoDB</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">Git</span>
+            <span class="pill">REST APIs</span>
+            <span class="pill">Agile</span>
           </div>
         </div>
 
