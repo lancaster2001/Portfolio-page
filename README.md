@@ -1,4 +1,5 @@
 # Static-portfolio
+This is a basic portfolio site for my cv and linkedin
 
 Know bugs:
 - linkedin badge won't display if third party cookies are disabled
