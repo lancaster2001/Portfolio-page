@@ -6,4 +6,6 @@ class NoListing(SimpleHTTPRequestHandler):
         return None
 
 if __name__ == "__main__":
-    HTTPServer(("0.0.0.0", 8000), NoListing).serve_forever()
+    server = HTTPServer(("0.0.0.0", 3002), NoListing)
+    print("Serving from working directory...")
+    server.serve_forever()
