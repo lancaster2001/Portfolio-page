@@ -11,13 +11,19 @@
     box-sizing: border-box
 }
 
-html,
+html {
+    height: 100%; /* Still a good practice */
+}
+
 body {
     margin: 0;
     padding: 0;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, 'Helvetica Neue', Arial;
     color: #e6eef8;
+    /* The key changes: */
+    min-height: 100vh; /* Ensures content pushes to at least full height */
     background: linear-gradient(180deg, #071025 0%, #071834 100%);
+    background-attachment: fixed; /* Makes the background cover the entire viewport always */
 }
 
 /* --- 1. Sticky Header and Layout Adjustments --- */
