@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Alex Lancaster — Portfolio</title>
+    <meta name="description" content="Portfolio of Alex Lancaster — Software Developer">
+    <link rel="stylesheet" href="../../css/global.css">
+    <link rel="stylesheet" href="../../css/system_monitor.css">
+
+    <!--<link id="globalCSS" rel="stylesheet" href="../../css/global.css">
+    <link id="projectsCSS" rel="stylesheet" href="../../css/system_monitor.css">
+
+    <script>
+        const ts = Date.now();
+        document.getElementById("globalCSS").href = "../../css/global.css?v=" + ts;
+        document.getElementById("projectsCSS").href = "../../css/system_monitor.css?v=" + ts;
+    </script>-->
+
+<body>
+
+    <header>
+        <div class="title">
+            <div>
+                <h1> Alex Lancaster</h1>
+                <div class="subtitle">Software Developer</div>
+            </div>
+        </div>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="../../index.html">Home</a></li>
+                <li><a href="../projects_main.html">Projects</a></li>
+                <li><a href="../../index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="grid">
+            <main>
+                <h1>A very quick guide on how I monitor my home infrastructure</h1>
+                <section class="card">
+                    <h2>What's the goal?</h2>
+                    <img src="../../Assets/HomeLab_monitor.png" alt="Image of Homelab dashboard">
+                    <p>
+                        ^This pretty much^<br>
+                        I wanted a way to easily visualise the performance and status of my home lab infrastructure at a
+                        glance.<br>
+                        Currently it doesn’t show all the VMs and LXCs at once however, I intend to revise this
+                        dashboard later when I build a rack for the server hardware.<br>
+                        I will use a display on the top rack to show this dashboard 24/7.
+                    </p>
+                    <h2>How is this achieved?</h2>
+                    <p>
+                        The monitoring system leverages InfluxDB and Grafana as a means to capture and visualise this
+                        data respectively.<br>
+                        Thankfully there's an excellent pre built dashboard for Proxmox VE available on Grafana
+                        Labs:<br>
+                        https://grafana.com/grafana/dashboards/10048-proxmox/<br>
+                        This dashboard utilizes Proxmox's built in metrics server to collect and send data to InfluxDB
+                        which Grafana then reads from to display the data.
+                    </p>
+                    <h3>Architecture Diagram</h3>
+                    <img src="../../Assets/HomeLab_monitor_diagram.png"
+                        alt="Image of Homelab monitor architecture diagram">
+                    <h3>What the heck is Telegraf there for?</h3>
+                    <p>
+                        Because I wanted to be able to monitor the status of LXCs and VMs and the existing panel for
+                        running LXCs and VMs isn’t quite as clean as I would like.<br>
+                        <img class="medium-image" src="../../Assets/HomeLab_existing_lxc_vm_panel.png"
+                            alt="image of running LXCs and VMs panel"><br>
+                        I figured I could make my own.<br>
+                        Part of the reason I did this was just for the sake of learning.<br>
+                        It will be beneficial in the future if I know how to configure and set up dashboards so that if
+                        I want to do something unique with them later, I can.<br>
+                        For example: Setting up a custom dashboard for a server rack display.<br>
+                    </p>
+                    <h2>What does Telegraf do here?</h2>
+                    <p>
+                        Telegraf is used to collect metrics from the Proxmox host about the running LXCs and VMs.<br>
+                        It then sends this data to InfluxDB where Grafana can read it from to display on a custom
+                        dashboard I made for this purpose.<br>
+                        This data shows:<br>
+                        -Running LXCs and VMs<br>
+                        -CPU usage per LXC/VM<br>
+                        -RAM usage per LXC/VM<br>
+                        -Disk usage per LXC/VM<br>
+                        -Network usage per LXC/VM<br>
+                        for this project however I only used it to display the running status of LXCs and VMs on the
+                        dashboard.<br>
+                    </p>
+                    <h3>Challenges faced</h3>
+                    <p>
+                        due to how Telegraf collects data from the Proxmox host, there where 2 main issued I have to
+                        over come:<br>
+                        - API tokens<br>
+                        - calling data for all LXCs and VMs<br><br>
+                    <h4>Problem One</h4>
+                    The first issue was trivial, as I already have a Proxmox user set up for auditor access.<br>
+                    So I used Proxmox's GUI to create an API token under that user and then, propagated permissions
+                    accordingly.<br><br>
+                    <h4>Problem Two</h4>
+                    The second issue however required a bit more creativity.<br>
+                    Telegraf's Proxmox input plugin requires you to specify the host you want to collect data from.<br>
+                    This means that if I wanted to add ore remove nodes from my system, I would have to manually update
+                    the Telegraf config file each time.<br><br>
+                    To get around this, I wrote a small bash script that uses the Proxmox API to get a list of all nodes
+                    in the cluster, then iterates through that list and adds each node to the Telegraf config file.<br>
+                    </p>
+                    <h2>How do we display this data in Grafana?</h2>
+                    <p>
+                        Once the data is being collected by InfluxDB, displaying it in Grafana is fairly straight
+                        forward.<br>
+                        You just need to create a new dashboard and add the appropriate panels to display the data you
+                        want.<br>
+                    <pre><code>
+from(bucket: "${Bucket}")
+  |> range(start: -1h)
+  |> filter(fn: (r) => r._measurement == "proxmox")
+  |> filter(fn: (r) => r._field == "status")
+  |> group(columns: ["vm_name", "vm_type"])
+  |> last()
+  |> keep(columns: ["vm_name", "vm_type", "_value"])
+  |> rename(columns: {vm_name: "Name",vm_type: "vm/lxc", _value: "status"})
+  |> group()  // Ungroup everything into a single table
+                        </code></pre>
+                    This is the flux query I used to display the running status of LXCs and VMs on the dashboard.<br>
+                    It filters the data to only show the status field from the Proxmox measurement, then groups the data
+                    by vm_name and vm_type, and finally displays the last value for each group.<br>
+                    This query also utilised the dashboard variable "Bucket" which I set to the name of the InfluxDB
+                    bucket I was using to store the Proxmox data. This was a neat trick I learned by reviewing the other
+                    pre made panels.<br>
+                    </p>
+                    <h2>Conclusion</h2>
+                    <p>
+                        Overall this was a fun little project to work on and I learned a lot about monitoring systems
+                        and how to set up custom dashboards in Grafana.<br>
+                        I actually had a previous solution where I used node exporter and Prometheus to collect data
+                        from the Proxmox host, but during the process I found out Proxmox had an integrated solution so
+                        I decided that would likely have been more reliable.<br>
+                        If you have any questions or want to know more about how I set this up, feel free to reach
+                        out!<br>
+                </section>
+
+            </main>
+        </div>
+
+        <footer>
+            Built and maintained by Alex Lancaster — © <span id="year"></span>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+
+</html>
