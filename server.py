@@ -1,4 +1,4 @@
-from http.server import SimpleHTTPRequestHandler, HTTPServer
+from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 
 class NoListing(SimpleHTTPRequestHandler):
     def list_directory(self, path):
@@ -6,6 +6,6 @@ class NoListing(SimpleHTTPRequestHandler):
         return None
 
 if __name__ == "__main__":
-    server = HTTPServer(("0.0.0.0", 3002), NoListing)
+    server = ThreadingHTTPServer(("0.0.0.0", 3002), NoListing)
     print("Serving from working directory...")
     server.serve_forever()
