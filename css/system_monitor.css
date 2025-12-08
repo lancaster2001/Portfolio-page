@@ -1,27 +1,66 @@
-/* ==================================================================== */
-/* ---------------------- system_monitor.css -------------------------- */
-/* ==================================================================== */
-.grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 24px;
-    margin-top: 24px
+/* system_monitor.css - page specific styles */
+
+/* Wider container with auto-expanding content (desktop only) */
+@media (min-width: 881px) {
+    .container {
+        max-width: 1400px;
+    }
 }
 
-.container {
-    /* Remove max-width: 980px; */
-    width: 90%; /* Use 90% of the screen width */
-    min-width: 320px; /* Optional: Sets a minimum width for very small screens */
-    max-width: 1600px; /* Optional: Sets a new, larger cap for huge monitors */
-    margin: 0 auto;
 
-    /* ... other styles ... */
+main {
+    flex: 1;
+    width: 100%;
+}
+
+.card {
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.card img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    overflow: hidden;
 }
 
 .medium-image {
-    width: 70%;      /* or whatever proportion you want */
-    max-width: 300px; /* optional: prevent it from being too wide */
-    height: auto;     /* keeps aspect ratio */
-    display: block;   /* removes inline spacing */
-    margin: 10px 0;   /* optional spacing */
+    width: 70%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 10px 0;
+}
+
+/* Mobile-specific overrides for system_monitor */
+@media (max-width: 880px) {
+
+    body {
+        overflow-x: auto;
+    }
+
+    .container {
+        margin: 0;
+        padding: 12px;
+        padding-top: 120px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-x: auto;
+        overflow-y: visible;
+        border-radius: 0;
+    }
+
+    .grid {
+        gap: 12px;
+        min-width: 100%;
+    }
+
+    .card {
+        padding: 12px;
+        overflow: visible;
+        max-width: 100%;
+        box-sizing: border-box;
+        word-break: break-word;
+    }
 }
