@@ -12,7 +12,7 @@
 }
 
 * {
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 html {
@@ -93,12 +93,12 @@ header {
 .title {
     display: flex;
     gap: 18px;
-    align-items: center
+    align-items: center;
 }
 
 h1 {
     font-size: 28px;
-    margin: 0
+    margin: 0;
 }
 
 .subtitle {
@@ -110,14 +110,14 @@ h1 {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    margin-top: 24px
+    margin-top: 24px;
 }
 
 .card {
     background: var(--card);
     padding: 18px;
     border-radius: 10px;
-    border: 1px solid rgba(255, 255, 255, 0.03)
+    border: 1px solid rgba(255, 255, 255, 0.03);
 }
 
 .card img {/*Ensures images fit in cards*/
@@ -130,7 +130,7 @@ h1 {
 
 .section-title {
     font-size: 16px;
-    margin: 0 0 10px 0
+    margin: 0 0 10px 0;
 }
 
 p {
@@ -153,7 +153,8 @@ footer {
 /* --- 4. Responsive adjustments (Common) --- */
 @media (max-width: 880px) {
     .grid {
-        grid-template-columns: 1fr;
+        gap: 16px;
+        margin-top: 24px;
     }
 
     header {
@@ -170,5 +171,16 @@ footer {
         margin: 18px;
         padding: 16px;
         padding-top: 120px;
+    }
+
+    .grid aside {
+        width: 100%;
+        min-width: 0; /* allow the aside to shrink inside grid and avoid overflow */
+    }
+
+    .card {
+        width: 100%;
+        max-width: 100%;
+        overflow-wrap: break-word;
     }
 }

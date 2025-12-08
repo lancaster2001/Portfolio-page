@@ -6,9 +6,8 @@
 /* --- Component Styles Unique to Main Page --- */
 .grid {
     display: grid;
-    grid-template-columns: 1fr 320px;
     gap: 24px;
-    margin-top: 24px
+    margin-top: 24px;
 }
 .see-more-link {
     display: block;
