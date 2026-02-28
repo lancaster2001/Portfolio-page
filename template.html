@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Your Name — Portfolio Template</title>
-  <meta name="description" content="Portfolio Template">
+  <title>loading..</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
@@ -15,8 +14,8 @@
   <header>
     <div class="title">
       <div>
-        <h1>[YOUR FULL NAME]</h1> 
-        <div class="subtitle">[Your Job Title/Role]</div>
+        <h1 id="name">Loading..</h1>
+        <div class="subtitle" id="job_title">Loading..</div>
       </div>
     </div>
     <nav class="main-nav">
@@ -34,8 +33,10 @@
 
         <section class="card">
           <h2 class="section-title">Personal Statement</h2>
-          <p>This is where your personal statement or professional summary goes. Use two short paragraphs to describe your skills, experience, and career goals. Focus on what you can offer to a potential employer.</p>
-          <p>Enthusiastic about joining engineering teams where you can contribute to modern workflows and scalable applications while continuously developing technical expertise.</p>
+          <p>This is where your personal statement or professional summary goes. Use two short paragraphs to describe
+            your skills, experience, and career goals. Focus on what you can offer to a potential employer.</p>
+          <p>Enthusiastic about joining engineering teams where you can contribute to modern workflows and scalable
+            applications while continuously developing technical expertise.</p>
         </section>
 
         <section class="card" style="margin-top:18px">
@@ -117,25 +118,22 @@
           <h3 class="section-title">Contact Info</h3>
           <div class="contact-list">
             <div><strong>Phone:</strong> <a class="link" href="tel:[Your Phone]">([Your Phone])</a></div>
-            <div><strong>Email:</strong> <a class="link"
-                href="mailto:[Your Email]">[Your Email]</a></div>
-            <div><strong>GitHub:</strong> <a class="link" href="[Your GitHub URL]"
-                target="_blank">[Your GitHub Handle]</a></div>
-            <div><strong>LinkedIn:</strong> <a class="link" href="[Your LinkedIn URL]"
-                target="_blank">[Your LinkedIn Name]</a></div>
+            <div><strong>Email:</strong> <a class="link" href="mailto:[Your Email]">[Your Email]</a></div>
+            <div><strong>GitHub:</strong> <a class="link" href="[Your GitHub URL]" target="_blank">[Your GitHub
+                Handle]</a></div>
+            <div><strong>LinkedIn:</strong> <a class="link" href="[Your LinkedIn URL]" target="_blank">[Your LinkedIn
+                Name]</a></div>
           </div>
         </div>
-        
+
         <div id="linkedin-badge-container" style="margin-top:10px;">
           <div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark"
             data-type="VERTICAL" data-vanity="[YOUR-LINKEDIN-VANITY]" data-version="v1">
-            <a class="badge-base__link LI-simple-link"
-              href="[Your LinkedIn URL]"></a>
+            <a class="badge-base__link LI-simple-link" href="[Your LinkedIn URL]"></a>
           </div>
 
           <div id="linkedin-fallback" style="margin-top:10px;">
-            <a class="link" href="[Your LinkedIn URL]" target="_blank"
-              rel="noopener noreferrer"
+            <a class="link" href="[Your LinkedIn URL]" target="_blank" rel="noopener noreferrer"
               style="display:inline-flex;align-items:center;gap:8px;color:inherit;text-decoration:none">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="#0A66C2" xmlns="http://www.w3.org/2000/svg"
                 aria-hidden="true" focusable="false">
@@ -201,15 +199,9 @@
 
       </aside>
     </div>
-
-    <footer>
-      Built and maintained by [Your Name] — © <span id="year"></span>
-    </footer>
+    <footer id="footer"></footer>
   </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="config.js"></script>
 </body>
 
 </html>

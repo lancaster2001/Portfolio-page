@@ -4,8 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{Insert Name} — Portfolio</title>                                              <!-- Insert Here -->
-  <meta name="description" content="Portfolio of {Insert Name} — {Insert profession}">  <!-- Insert Here -->
+  <title>loading..</title>
   <link rel="stylesheet" href="../css/global.css">
 </head>
 
@@ -14,8 +13,8 @@
   <header>
     <div class="title">
       <div>
-        <h1>{Insert Name}</h1>                                                          <!-- Insert Here -->
-        <div class="subtitle">{Insert profession}</div>                                 <!-- Insert Here -->                                                     
+        <h1 id="name">Loading..</h1>
+        <div class="subtitle" id="job_title">Loading..</div>
       </div>
     </div>
     <nav class="main-nav">
@@ -52,15 +51,9 @@
 
       </aside>
     </div>
-
-    <footer>
-      Built and maintained by {Insert Name} — © <span id="year"></span>                 <!-- Insert Here -->
-    </footer>
+    <footer id="footer"></footer>
   </div>
-
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+  <script src="../config.js"></script>
 </body>
 
 </html>

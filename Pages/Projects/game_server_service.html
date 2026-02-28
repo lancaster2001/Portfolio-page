@@ -38,27 +38,43 @@
     <div class="container">
         <div class="grid">
             <main>
-                <h1>Home infrastructure monitoring</h1>
+            <!--
+            Essential
+
+            Hero / Title — Project name, a one-line description, and maybe a cover image or screenshot
+            Overview — What the project is, why you built it, and the problem it solves (2–3 sentences)
+            Tech Stack — Tools, languages, and frameworks used
+            Key Features — The most interesting or impactful things it does
+            Screenshots / Demo — Visuals go a long way; a live demo link or video is even better
+
+            Nice to Have
+
+            My Role — Especially useful for team projects, to clarify what you personally contributed
+            Challenges & Solutions — Shows your problem-solving process, which employers love
+            Outcome / Results — Metrics, user feedback, lessons learned, or impact
+            Links — GitHub repo, live site, case study, etc.
+
+            Optional
+
+            Timeline — When you built it and how long it took
+            Future Plans — What you'd add or improve next
+            -->
+                <h1>Game server service</h1>
                 <section class="card">
                     <h2>What's the goal?</h2>
-                    <img src="../../Assets/HomeLab_monitor.png" alt="Image of Homelab dashboard">
                     <p>
-                        ^This pretty much^<br>
-                        I wanted a way to easily visualise the performance and status of my home lab infrastructure at a
-                        glance.<br>
-                        Currently it doesn’t show all the VMs and LXCs at once however, I intend to revise this
-                        dashboard later when I build a rack for the server hardware.<br>
-                        I will use a display on the top rack to show this dashboard 24/7.
+                        I wanted a way to easily host and manage game servers on my homelab.<br>
+                        I chose Pterodactyl as the platform for this because it's a well established and widely used
+                        solution for hosting game servers.<br>
+                        It allows me to easily manage multiple game servers from a single interface, and it's also
+                        relatively easy to set up and maintain.
                     </p>
                     <h2>How is this achieved?</h2>
                     <p>
-                        The monitoring system leverages InfluxDB and Grafana as a means to capture and visualise this
-                        data respectively.<br>
-                        Thankfully there's an excellent pre built dashboard for Proxmox VE available on Grafana
-                        Labs:<br>
-                        https://grafana.com/grafana/dashboards/10048-proxmox/<br>
-                        This dashboard utilizes Proxmox's built in metrics server to collect and send data to InfluxDB
-                        which Grafana then reads from to display the data.
+                        The game server service is hosted on a dedicated LXC in my homelab, and it uses Pterodactyl as
+                        the platform for hosting and managing the game servers.<br>
+                        I have set up a vpn connection to a cheap VPS which ip forwards traffic from certain ports back to the LXC.<br>
+                        
                     </p>
                     <h3>Architecture Diagram</h3>
                     <img src="../../Assets/HomeLab_monitor_diagram.png"
@@ -146,7 +162,7 @@ from(bucket: "${Bucket}")
         </div>
         <footer id="footer"></footer>
     </div>
-    <script src="../config.js"></script>
+    <script src="../../config.js"></script>
 </body>
 
 </html>
