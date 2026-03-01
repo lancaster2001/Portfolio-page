@@ -16,10 +16,23 @@ function setById(id, prop, value) {
   if (element) element[prop] = value;
 }
 
+//functiont to change css file name to forces browsers to refresh the cache and load the new css file.
+function refreshCSS() {
+  const links = document.querySelectorAll('link[rel="stylesheet"]');
+  links.forEach(link => {
+    const url = new URL(link.href);
+    url.searchParams.set('v', Date.now());
+    link.href = url.toString();
+  });
+}
+
+//refresh css file
+refreshCSS();
+
 //Set variables for page use
 setById("year", "textContent", new Date().getFullYear());
 setById("name", "textContent", SITE.name);
 setById("job_title", "textContent", SITE.job_title);
-setById("footer", "textContent",  `Built and maintained by ${SITE.name} — © ${new Date().getFullYear()}`);
+setById("footer", "textContent", `Built and maintained by ${SITE.name} — © ${new Date().getFullYear()}`);
 setById("github_link", "href", SITE.github);
 setById("linkedin_link", "href", SITE.linkedin);
