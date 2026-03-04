@@ -28,17 +28,29 @@ function refreshCSS() {
 
 //sets website icon image, if not set it will default to the browser's default icon
 function setFavicon(href) {
-  if (!href) return; //skip if no image provided
+  if (!href) return;
+
+  const prefixes = ['', '../', '../../'];
+  let index = 0;
+
   const img = new Image();
 
-  img.onload = () => {// runs only if image loads successfully, preventing broken icon links
+  img.onload = () => {
     const favicon = document.querySelector("link[rel='icon']") || document.createElement('link');
     favicon.rel = 'icon';
-    favicon.href = href;
+    favicon.href = img.src;
     document.head.appendChild(favicon);
   };
-  
-  img.src = href;
+
+  img.onerror = () => {
+    index++;
+    if (index < prefixes.length) {
+      img.src = prefixes[index] + href; // 👈 try next prefix on failure
+    }
+    // If all prefixes fail, do nothing — browser keeps default icon
+  };
+
+  img.src = prefixes[0] + href;
 }
 
 //set website icon image
