@@ -7,6 +7,27 @@ const SITE = {
   linkedin: "https://www.linkedin.com/in/alex-lancaster-7437671b4/",
 }
 
+//function for forcing browsers to refresh the css files for pages
+function refreshCSS() {
+  const links = document.querySelectorAll('link[rel="stylesheet"]');
+
+  links.forEach(oldLink => {
+    const newLink = oldLink.cloneNode();
+    const url = new URL(oldLink.href);
+    url.searchParams.set('v', Date.now());
+    newLink.href = url.toString();
+
+    newLink.onload = () => {
+      oldLink.remove(); // remove only AFTER new CSS loads
+    };
+
+    oldLink.parentNode.insertBefore(newLink, oldLink.nextSibling);
+  });
+}
+
+//refresh css file
+refreshCSS();
+
 //Sets page Title
 document.title = SITE.name + " | Portfolio";
 

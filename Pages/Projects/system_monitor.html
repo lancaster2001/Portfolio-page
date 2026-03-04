@@ -7,19 +7,9 @@
     <title>loading..</title>
     <link rel="stylesheet" href="../../css/global.css">
     <link rel="stylesheet" href="../../css/system_monitor.css">
-    <script src="css_refresher.js"></script>
-
-    <!--<link id="globalCSS" rel="stylesheet" href="../../css/global.css">
-    <link id="projectsCSS" rel="stylesheet" href="../../css/system_monitor.css">
-
-    <script>
-        const ts = Date.now();
-        document.getElementById("globalCSS").href = "../../css/global.css?v=" + ts;
-        document.getElementById("projectsCSS").href = "../../css/system_monitor.css?v=" + ts;
-    </script>-->
+</head>
 
 <body>
-
     <header>
         <div class="title">
             <div>
@@ -55,7 +45,8 @@
                         data respectively.<br>
                         Thankfully there's an excellent pre built dashboard for Proxmox VE available on Grafana
                         Labs:<br>
-                        <a href="https://grafana.com/grafana/dashboards/10048-proxmox/" class="link">https://grafana.com/grafana/dashboards/10048-proxmox/</a><br>
+                        <a href="https://grafana.com/grafana/dashboards/10048-proxmox/"
+                            class="link">https://grafana.com/grafana/dashboards/10048-proxmox/</a><br>
                         This dashboard utilizes Proxmox's built in metrics server to collect and send data to InfluxDB
                         which Grafana then reads from to display the data.
                     </p>
