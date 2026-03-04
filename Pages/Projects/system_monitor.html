@@ -41,22 +41,20 @@
                 <h1>Home infrastructure monitoring</h1>
                 <section class="card">
                     <h2>What's the goal?</h2>
-                    <img src="../../Assets/HomeLab_monitor.png" alt="Image of Homelab dashboard">
-                    <p>
-                        ^This pretty much^<br>
-                        I wanted a way to easily visualise the performance and status of my home lab infrastructure at a
+                    <p>wanted a way to easily visualise the performance and status of my home lab infrastructure at a
                         glance.<br>
                         Currently it doesn’t show all the VMs and LXCs at once however, I intend to revise this
                         dashboard later when I build a rack for the server hardware.<br>
                         I will use a display on the top rack to show this dashboard 24/7.
                     </p>
+                    <img src="../../Assets/HomeLab_monitor.png" alt="Image of Homelab dashboard">
                     <h2>How is this achieved?</h2>
                     <p>
                         The monitoring system leverages InfluxDB and Grafana as a means to capture and visualise this
                         data respectively.<br>
                         Thankfully there's an excellent pre built dashboard for Proxmox VE available on Grafana
                         Labs:<br>
-                        https://grafana.com/grafana/dashboards/10048-proxmox/<br>
+                        <a href="https://grafana.com/grafana/dashboards/10048-proxmox/" class="link">https://grafana.com/grafana/dashboards/10048-proxmox/</a><br>
                         This dashboard utilizes Proxmox's built in metrics server to collect and send data to InfluxDB
                         which Grafana then reads from to display the data.
                     </p>
