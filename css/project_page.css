@@ -1,4 +1,8 @@
-/* system_monitor.css - page specific styles */
+/* ==================================================================== */
+/* -------------------------- global.css ------------------------------ */
+/* ==================================================================== */
+/*Note: This is the default css for individual project pages*/
+
 
 /* Wider container with auto-expanding content (desktop only) */
 @media (min-width: 881px) {
@@ -18,11 +22,20 @@ main {
     box-sizing: border-box;
 }
 
+/* -------------------------- Image Sizes ------------------------------ */
+/*Default image size*/
 .card img {
     max-width: 100%;
     height: auto;
     display: block;
     overflow: hidden;
+}
+
+.large-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: 10px 0;
 }
 
 .medium-image {
@@ -33,7 +46,7 @@ main {
     margin: 10px 0;
 }
 
-/* Mobile-specific overrides for system_monitor */
+/* Mobile-specific overrides */
 @media (max-width: 880px) {
 
     body {
