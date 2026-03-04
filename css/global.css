@@ -132,6 +132,8 @@ h1 {
 a.link {
     color: #cfe7ff;
     text-decoration: none;
+    background: var(--accent);
+    transition: background 0.2s, box-shadow 0.2s;
 }
 
 .see-more-link {
