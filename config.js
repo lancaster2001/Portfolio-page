@@ -5,6 +5,7 @@ const SITE = {
   job_title: "Technical Consultant",
   github: "https://github.com/Lancaster2001",
   linkedin: "https://www.linkedin.com/in/alex-lancaster-7437671b4/",
+  favicon: "Assets/Website_Icon.png",
 }
 
 //function for forcing browsers to refresh the css files for pages
@@ -25,6 +26,23 @@ function refreshCSS() {
   });
 }
 
+//sets website icon image, if not set it will default to the browser's default icon
+function setFavicon(href) {
+  if (!href) return; //skip if no image provided
+  const img = new Image();
+
+  img.onload = () => {// runs only if image loads successfully, preventing broken icon links
+    const favicon = document.querySelector("link[rel='icon']") || document.createElement('link');
+    favicon.rel = 'icon';
+    favicon.href = href;
+    document.head.appendChild(favicon);
+  };
+  
+  img.src = href;
+}
+
+//set website icon image
+setFavicon(SITE.favicon);
 //refresh css file
 refreshCSS();
 
