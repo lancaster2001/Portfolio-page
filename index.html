@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>loading..</title>    
+  <title>loading..</title>
   <link rel="stylesheet" href="css/global.css">
   <link rel="stylesheet" href="css/index.css">
 </head>
@@ -33,25 +33,37 @@
 
         <section class="card">
           <h2 class="section-title">Personal Statement</h2>
-          <p>Hands-on Technical Consultant specializing in cloud infrastructure, CI/CD pipelines, Linux systems, and
-            full-stack engineering. I enjoy creating streamlined, secure, and scalable workflows that help teams ship
-            faster and with greater confidence. </p>
-          <p>I’m passionate about modern DevOps and the use of AI-driven development tools—whether for automating
-            repetitive tasks, improving deployment reliability, or accelerating experimentation. Excited to bring this
-            energy to engineering teams building the next generation of scalable applications.</p>
-            <p>Want to know more? Check out my projects page.</p>
+          <p>Results-driven Technical Consultant with proven experience designing, deploying, and maintaining secure and
+            scalable pipelines. Demonstrated success at VLDB Solutions reducing deployment times and improving pipeline
+            reliability through targeted infrastructure automation. Adept at eliminating operational friction whether
+            automating manual processes, hardening network security, or accelerating release cycles. </p>
+          <p>Currently building on that foundation through self-directed projects in multi-cloud architecture and
+            container orchestration including. Proxmox-based home lab with WireGuard VPN hardening, a personal portfolio
+            site running on a high-availability multi-node cluster with, fully automated deployment pipelines.</p>
+          <p>Want to know more? Check out my projects page.</p>
         </section>
 
         <section class="card" style="margin-top:18px">
           <h2 class="section-title">Projects</h2>
 
           <div class="project">
+            <strong>Property Management Database</strong>
+            <div class="meta">VLDB Project (Complete)</div>
+            <ul>
+              <li>Automated data ingestion workflows (AWS, SnapLogic, Salesforce) → reduced a month-long manual process to one week</li>
+              <li>Built real-time property data sync across platforms, eliminating manual data entry</li>
+              <li>Developed REST APIs to support downstream application access and live data queries</li>
+              <li>Collaborated with engineers and stakeholders to scope and deliver cloud solutions on schedule</li>
+            </ul>
+          </div>
+
+          <div class="project">
             <strong>Home Lab Virtualization & Network Infrastructure</strong>
             <div class="meta">Self-directed project (Ongoing)</div>
             <ul>
-              <li>Built a virtualized lab using Proxmox VE with multi-node network segmentation for secure testing.</li>
-              <li>Automated deployment + monitoring workflows, reducing manual maintenance by 70%.</li>
-              <li>Configured VPN + SSH key access to improve remote access security.</li>
+              <li>Built a virtualized lab using Proxmox VE with multi-node network segmentation for secure testing</li>
+              <li>Automated deployment + monitoring workflows, reducing manual maintenance by 70%</li>
+              <li>Configured VPN + SSH key access to improve remote access security</li>
             </ul>
           </div>
 
@@ -59,22 +71,12 @@
             <strong>Personal Portfolio Website</strong>
             <div class="meta">Self-directed project (Ongoing)</div>
             <ul>
-              <li>Built a highly available multi-node clustered environment with automatic failover.</li>
-              <li>Implemented isolated dev/staging/prod environments enabling zero-downtime updates.</li>
+              <li>Built a highly available multi-node clustered environment with automatic failover</li>
+              <li>Implemented isolated dev/staging/prod environments enabling zero-downtime updates</li>
               <li>Tech: AWS · Docker · Nginx · Bash · Git · Proxmox</li>
             </ul>
           </div>
 
-          <div class="project">
-            <strong>Property Management Database</strong>
-            <div class="meta">VLDB Project (Complete)</div>
-            <ul>
-              <li>Built and maintained CI/CD pipelines using SnapLogic → improved deployment speed by 20%.</li>
-              <li>Developed ingestion flows integrating AWS, SnapLogic & Salesforce.</li>
-              <li>Created REST APIs to support downstream applications and data consumption.</li>
-              <li>Worked with engineers & stakeholders to support reliable cloud delivery.</li>
-            </ul> 
-          </div>
           <a href="Pages/projects_main.html" class="see-more-link">See More Projects →</a>
         </section>
 
@@ -163,7 +165,7 @@
           </div>
         </div>
 
-       <!-- <div class="card" style="margin-top:14px">
+        <!-- <div class="card" style="margin-top:14px">
           <h3 class="section-title">Quick Links</h3>
           <ul>
             <li><a class="link" href="Assets/AlexLancaster_CV.pdf" target="_blank">Download CV (PDF)</a></li>
